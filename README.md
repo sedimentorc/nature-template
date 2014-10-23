@@ -20,6 +20,8 @@ Features:
 
 The main file is nature-template.tex. Start by reading the sample output file: nature-template.pdf.
 
+Note, there is also a template coverletter.tex that you can use as the basis for putting together the coverletter.
+
 Good luck,
 
 Carlos
