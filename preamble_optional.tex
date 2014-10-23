@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPTIONAL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%extra packages: todonotes, ulem, rotating, soul, color
+%special commands: \NEW, \NOTE, \NOTEC, \NOTEM, \Conv, \xoverline
+
+% optional special text packages
+\usepackage{ulem} %provides various types of underlining that can stretch between words and be broken across lines
+\usepackage{rotating} % rotate any object by arbitrary angle
+\usepackage{soul}%h y p h e n -a t a b l e l e t t e r s p a c i n g ( s p a c i n g o u t ) , underlining and some derivatives such as overstriking and highlighting
+
+
+% tools to edit with multiple authors
+\usepackage{color} %change color of text
+
+% use new to ask people to highlight changes
+\newcommand{\NEW}[1]{{\color{red}{#1}}}
+
+%use todonotes to specify notes and todonotes
+\usepackage[colorinlistoftodos]{todonotes}
+
+
+\newcommand{\NOTEM}[2][]
+{\todo[caption={#2}, size=\small, #1,color=red!40]{\renewcommand{\baselinestretch}{0.5}\selectfont#2\par}}
+
+\newcommand{\NOTEC}[2][]
+{\todo[caption={#2}, size=\small, #1,color=blue!40]{\renewcommand{\baselinestretch}{0.5}\selectfont#2\par}}
+
+\newcommand{\NOTE}[2][]
+{\todo[caption={#2}, size=\small, #1]{\renewcommand{\baselinestretch}{0.5}\selectfont#2\par}}
+
+% consider automatically making NOTE be an inline function if inside float. 
+%you can detect if inside float using a simple if statement
+%http://tex.stackexchange.com/questions/27172/how-can-i-detect-if-im-inside-or-outside-of-a-float-environment
+
+
+
+
+%define convolution symbol
+\newcommand{\Conv}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}%
+
+%http://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+%provides wide overline command
+% \xoverline[width percent]{symb}
+% note, it doesn't scale correctly inside superscripts
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+
+%% define dummy figure
+% make a figure by calling \dummyfig{Dummy Figure Label} instead of includegraphics in the figure environment
+% see https://gist.github.com/dpgettings/9635856
+\newcommand{\dummysinglecolfig}[1]{
+  \centering
+  \fbox{
+    \begin{minipage}[c][89mm][c]{89mm}
+      \centering{#1}
+    \end{minipage}
+  }
+}
+ 
+\newcommand{\dummydoublecolfig}[1]{
+  \centering
+  \fbox{
+    \begin{minipage}[c][89mm][c]{183mm}
+      \centering{#1}
+    \end{minipage}
+  }
+}
+  
+
+
+

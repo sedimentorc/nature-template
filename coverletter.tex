@@ -1,0 +1,130 @@
+% In addition, a cover letter needs to be written with the
+% following:
+% \begin{enumerate}
+%  \item A 100 word or less summary indicating on scientific grounds
+% why the paper should be considered for a wide-ranging journal like
+% \textsl{Nature} instead of a more narrowly focussed journal.
+%  \item A 100 word or less summary aimed at a non-scientific audience,
+% written at the level of a national newspaper.  It may be used for
+% \textsl{Nature}'s press release or other general publicity.
+%  \item The cover letter should state clearly what is included as the
+% submission, including number of figures, supporting manuscripts
+% and any Supplementary Information (specifying number of items and
+% format).
+%  \item The cover letter should also state the number of
+% words of text in the paper; the number of figures and parts of
+% figures (for example, 4 figures, comprising 16 separate panels in
+% total); a rough estimate of the desired final size of figures in
+% terms of number of pages; and a full current postal address,
+% telephone and fax numbers, and current e-mail address.
+% \end{enumerate}
+
+% See \textsl{Nature}'s website
+% (\texttt{http://www.nature.com/nature/submit/gta/index.html}) for
+% complete submission guidelines.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Long Lined Cover Letter
+% LaTeX Template
+% Version 1.0 (1/6/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Matthew J. Miller
+% http://www.matthewjmiller.net/howtos/customized-cover-letter-scripts/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,stdletter,dateno,sigleft]{newlfm} % Extra options: 'sigleft' for a left-aligned signature, 'stdletternofrom' to remove the from address, 'letterpaper' for US letter paper - consult the newlfm class manual for more options
+
+%\usepackage{charter} % Use the Charter font for the document text
+
+\newsavebox{\Luiuc}\sbox{\Luiuc}{\parbox[b]{1.75in}{\vspace{0.5in}
+\includegraphics[width=1.2\linewidth]{awesome_uni_logo.jpg}}} % Company/institution logo at the top left of the page
+\makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
+
+\newlfmP{sigsize=30pt} % Slightly decrease the height of the signature field
+\newlfmP{addrfromphone} % Print a phone number under the sender's address
+\newlfmP{addrfromemail} % Print an email address under the sender's address
+\PhrPhone{Phone} % Customize the "Telephone" text
+\PhrFax{Fax}
+\PhrEmail{Email} % Customize the "E-mail" text
+
+\lthUiuc % Print the company/institution logo
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\namefrom{\includegraphics[scale=0.5]{prof_signature.jpg} \\
+Prof. Awesome} % Name
+
+
+\addrfrom{
+\today\\[12pt] % Date
+University of Awesome \\
+Dept. Such and Such \\
+Awesome Mailing Address 
+}
+
+\phonefrom{(+1) 800-867-5309; Fax: (+1)  800-867-5309} % Phone number
+
+
+
+\emailfrom{name@awesomeuni.edu} % Email address
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING/CLOSING
+%----------------------------------------------------------------------------------------
+
+\greetto{Dear Sir or Madam Editor,} % Greeting text
+
+\closeline{Sincerely yours,} % Closing text
+
+
+%\nameto{Editor, Nature Magazine} % Addressee of the letter above the to address
+
+%\addrto{
+%Recruitment Officer \\ % To address
+%The Corporation \\
+%123 Pleasant Lane \\
+%City, State 12345
+%}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{newlfm}
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+% http://www.nature.com/nature/authors/submissions/subs/#a6
+%Submissions should be accompanied by a brief covering letter from the corresponding author including full postal address, telephone number and e-mail address. This letter should contain two (100-word or shorter) summaries: a concise paragraph to the editor indicating the scientific grounds why the paper should be considered for a topical, interdisciplinary journal rather than for a single-discipline or archival journal; and a separate, 100-word summary of the paper's appeal to a popular (non-scientific) audience.
+%
+%The cover letter should state clearly what is included as the submission, including number of words in the text and number of display items (figures, tables, boxes) in the print version of the paper; number of additional words in the text (full Methods and Extended Data legends) and number of Extended Data figures and tables for the online-only version; any Supplementary Information (specifying number of items and format); number of supporting manuscripts.
+
+
+Thank you for considering our submission to \textit{Awesome Journal}. Our letter, titled ``Best paper ever'', is XXX words in length. There are XXX figures in the body of the paper, with a total of XXX separate panels. The estimated total length of our report is XXX pages in \textit{Awesome Journal}; the desired final size of figures should encompass approximately XXX pages. Supplementary Information is included in this submission and contains XXX Extended Data figures, with a total length of XX pages. All authors approve of this submission. 
+
+\textbf{Summary to the Editor:}  a concise paragraph to the editor indicating the scientific grounds why the paper should be considered for a topical, interdisciplinary journal rather than for a single-discipline or archival journal; and
+
+\textbf{Summary to the Public:}  a separate, 100-word summary of the paper's appeal to a popular (non-scientific) audience.
+
+
+Please do not hesitate to contact me with any questions or comments. I look forward to hearing from you. 
+
+%----------------------------------------------------------------------------------------
+
+\end{newlfm}
+\end{document}

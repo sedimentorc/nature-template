@@ -1,0 +1,43 @@
+\newpage
+\textbf{\LARGE Supplementary Information}
+
+%reset figure counter
+%\processdelayedfloats
+%\setcounter{figure}{0}
+%\setcounter{postfigure}{0} %for endfloat package
+
+
+This Supplementary Information file contains data and additional methods in support of the paper. We will assume you want sections.
+%The figure counter is currently set to \thepostfigure.
+
+\section{Issue ABC}
+\label{sec:ABC}
+
+\begin{figure}[t]
+%\centerline{\includegraphics[width= 17cm]{./ExtendedData_1.pdf}}
+\centerline{\dummydoublecolfig{ExtendedData1}}
+\caption{\edfigurelabel{fig:figureSM1} Dummy caption. Note, Extended Data Figures are all two-column.}
+\end{figure}
+
+The Supplementary Information is all-text, but it can refer to figures in the Extended Data. For example, look at the awesome Extended Data Fig.~\ref{fig:figureSM1}, which is correctly referenced as the first figure by the figure counter. A maximum of ten Extended Data display items (figures and tables) is permitted.
+
+The template is set up to print all the references in the main references, based on\cite{nsuppmat} ``Please note that we do not encourage deposition of references within SI as they will not be live links and will not contribute towards citation measures for the papers concerned. Authors who nevertheless wish to post reference lists should continue the numbering from the last reference listed in the print version, rather than repeating the numbering in the print version.'' If, for whatever reason, you decide that you want to have the references print inside Supplementary Information, the solution here: \url{http://tex.stackexchange.com/questions/66778/citation-alias-with-multibib-and-natbib} should be able to be implemented with this template using natbib and multibib.
+
+
+
+\section{Important Issue XYZ}
+\label{sec:XYZ}
+
+Look, we're in a new section. It has an awesome Extended Data Fig.~\ref{fig:figureSM2}, which is correctly referenced as the second figure by the figure counter.
+
+\begin{figure}[t]
+%\centerline{\includegraphics[height={\textheight-140 pt}]{./ExtendedData_2.pdf}}
+\centerline{\dummydoublecolfig{ExtendedData2}}
+\caption{\edfigurelabel{fig:figureSM2} Dummy Caption. Note, Extended Data Figures are all two-column.}
+\end{figure}
+
+
+
+
+
+

@@ -1,0 +1,159 @@
+% add line-numbers
+\usepackage{lineno}
+\linenumbers*[1] 
+
+\usepackage{setspace}
+\doublespacing
+
+% add support for math
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% figures
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{graphicx}
+
+% for figure sizing
+\usepackage[export]{adjustbox}
+
+
+% to send all figures to the end of the text
+\usepackage[nomarkers,nolists,figuresonly]{endfloat}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+% For Figures numbers at end with extended data:
+
+
+
+% \usepackage{etoolbox}
+
+% \usepackage{chngcntr} %provides counterwithin              
+
+% % Make a new counter to step through the number of tables we have
+% % We use this to keep track of the "real" labels of the floats
+% \newcounter{mypostfigure}
+
+% % The following code will be run both when the table is initially encountered
+% % AND when the table is finally printed at the end of the section/document
+% \AtBeginEnvironment{figure}{
+%   \stepcounter{mypostfigure} % Work with incremented myposttable count
+%   % If not defined, define a label for the table to be stored and displayed later.
+%   \ifcsdef{\themypostfigure}{}{\stepcounter{figure}\csxdef{\themypostfigure}{\thefigure}\addtocounter{figure}{-1}}
+%   % Renew the definition of \thetable to use the updated number
+%   %use the following line for section numbers
+%   %\renewcommand{\thefigure}{\csuse{effigure\themypostfigure}}
+%   \renewcommand{\thefigure}{{\themypostfigure}}
+% }
+
+% % Reset the myposttable counter when we start displaying the tables
+% % to cycle through the actual labels we want while we print them
+% %\AtBeginFigures{\setcounter{mypostfigure}{0}}
+% \AtBeginFigures{\setcounter{mypostfigure}{0}}
+
+% % Change definition of \figureplace to reflect actual table numbers with section
+
+% %uncomment this to use section numbers
+% %\renewcommand\figureplace{\begin{center}[\figurename~\csuse{effigure\themypostfigure}\ referenced here.]\end{center}}
+
+% \renewcommand\figureplace{\begin{center}[\figurename~\themypostfigure\ referenced here.]\end{center}}
+
+
+
+% --- End For Figures with endfloat
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+%% Begin custom figure labels
+
+% format captions to remove "Figure" label for caption text
+\usepackage[normal,normal,bf,labelformat=empty]{caption}
+
+% create convenience functions for user to use in caption depending on whether in main body or in extended data
+\newcounter{mybodyfigure}
+\newcounter{myedfigure}
+
+\newcommand{\beginbodyfigures}{\renewcommand{\thefigure}{{\themybodyfigure}}}
+
+\newcommand{\beginedfigures}{\renewcommand{\thefigure}{{\themyedfigure}}}
+
+
+\newcommand{\stepbodyfigure}{\refstepcounter{mybodyfigure}}
+
+\DeclareRobustCommand{\bodyfigure}[1]{\stepbodyfigure\label{#1}{\themybodyfigure}}
+
+\newcommand{\bodyfigurelabel}[1]{\bf{Figure \bodyfigure{#1}:}}
+
+\makeatletter
+\g@addto@macro\caption@prepareslc{%
+  \renewcommand{\stepbodyfigure}{\caption@l@stepcounter{mybodyfigure}}}
+\makeatother
+
+\newcommand{\stepedfigure}{\refstepcounter{myedfigure}}
+
+\DeclareRobustCommand{\edfigure}[1]{\stepedfigure\label{#1}{\themyedfigure}}
+
+\newcommand{\edfigurelabel}[1]{\bf{Extended Data Figure \edfigure{#1}:}}
+
+\makeatletter
+\g@addto@macro\caption@prepareslc{%
+  \renewcommand{\stepedfigure}{\caption@l@stepcounter{myedfigure}}}
+\makeatother
+
+% What have I done here?
+
+% We need to use \refstepcounter rather than \stepcounter to make your custom counter "visible" to the referencing mechanism. The label can go anywhere after the \refstepcounter as long as it's before the next \refstepcounter. Last, because we're using the caption package, we have to take into account the fact that the caption package evaluates each caption twice. 
+
+% See http://tex.stackexchange.com/questions/160207/side-effect-of-caption-package-with-custom-counter for a possible workaround.
+
+% I chose the cleaner workaround here http://tex.stackexchange.com/questions/127914/custom-counter-steps-twice-when-invoked-from-caption-using-caption-package without even testing the first option.
+
+% Note, there is a third option, \usepackage[singlelinecheck=false]{caption}, which discards the single-line check by the caption package, but it also prevents you from using centered captions.
+
+% Solution Walkthrough
+
+% There are two custom counters that have been created to track the figure number, which are distinct from the default \thefigure. For this reason, we needed to create a custom label/reference function. The default label function will not give the correct numbering for figures, particularly in the extended data section. Note, you could get away with only one custom counter, but I found this simpler to deal with, given the need for custom caption label text.
+
+% I have outsourced the incrementation of the custom counter to \stepbodyfigure and \stepedfigure (themselves using \refstepcounter), so I can re-define these commands later on.
+
+% I have extended \caption@prepareslc so the custom counters will only be incremented locally during the evaluation of the caption text length. 
+
+% I use the internal macro \caption@l@stepcounter for local incrementation of the custom counters.
+
+% Again, see http://tex.stackexchange.com/questions/127914/custom-counter-steps-twice-when-invoked-from-caption-using-caption-package, for the original.
+
+
+%modify caption spacing
+%\captionsetup{font={small,stretch=1}, strut=on}
+
+% dirty way to remove figure label from captions
+% I replaced the following commands with labelformat=empty in caption package (see above). This preserves the ability to do figure numbering
+%remove all figure names
+%\renewcommand{\figurename}{}
+%remove all numbers
+%\renewcommand{\thefigure}{}
+
+%%end custom figure labels
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%bibliography
+\usepackage[super,comma,sort&compress]{natbib}
+
+% for url
+\usepackage{hyperref}
+% for code
+\usepackage{verbatim}
+
+%%comment the next line to disable the optional features
+% this optional preamble includes:
+%extra packages: todonotes, ulem, rotating, soul, color
+%special commands for working with multiple people: \NEW, \NOTE, \NOTEC, \NOTEM
+%special symbols: \Conv, \xoverline
+\input{preamble_optional.tex}
+

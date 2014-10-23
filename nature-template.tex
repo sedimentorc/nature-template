@@ -1,0 +1,75 @@
+%% Template for a preprint Letter or Article for submission
+%% to the journal Nature.
+%% Written by Carlos Ortiz, 10/21/2014, 
+%%  based on template by Peter Czoschke, 26 February 2004
+
+\documentclass{nature}
+%% make sure you have the nature.cls where latex can find them
+
+\input{preamble.tex}
+
+\bibliographystyle{naturemag}
+%% make sure you have nature.bst where LaTeX can find them
+
+\title{Title should be descriptive and use minimal jargon}
+
+%% Notice placement of commas and superscripts and use of &
+%% in the author list
+
+%\author{Aauthor$^{1,2}$, Bauthor$^2$ \& LastAuthor$^2$}
+\author{Aauthor$^{1*}$, Bauthor$^{1,2*}$, Cauthor$^{2}$ and Dauthor$^{1+}$}
+
+\begin{document}
+
+
+\maketitle
+
+\begin{affiliations}
+ \item Department of such and such, University of Awesome
+ \item Department of such and such, Awesome University
+ \item[] $^{*}$Authors contributed equally to this work
+ \item[] $^{+}$To whom corresponce should be addressed: name@awesomeuni.edu
+\end{affiliations}
+
+\input{abstract.tex}
+\beginbodyfigures
+%\setcounter{mypostfigure}{0}
+
+\input{body.tex}
+
+
+\input{methods.tex}
+
+
+{\bfseries References}
+
+\bibliography{mybib}
+%Articles are restricted to 50 references, Letters to 30. No compound references -- only one source per reference.
+%When cited in the text, reference numbers are superscript, not in brackets unless they are likely to be confused with a superscript number.
+%http://www.nature.com/nature/authors/gta/#a5.4
+
+
+%% Here is the endmatter stuff: Supplementary Info, etc.
+%% Use \item's to separate, default label is "Acknowledgements"
+
+\begin{addendum}
+ \item [Acknowledgments] Research was supported by such and such grants. We thank collaborator XYZ for his help.
+ \item[Competing Interests] The authors declare that they have no competing financial interests.
+ \item[Correspondence] Correspondence and requests for materials should be addressed to name@awesomeuni.edu.
+\end{addendum}
+
+%"Please note, if you are submitting Supplementary Information with your manuscript, we and our referees prefer it to be submitted as one merged document."
+% ---http://mts-nature.nature.com/cgi-bin/main.plex?form_type=display_auth_instructions
+%\setcounter{mypostfigure}{0}
+%\setcounter{figure}{0}
+
+\beginedfigures
+\input{suppmat.tex}
+
+%%
+%% TABLES
+%%
+%% If there are any tables, put them here.
+%%
+
+\end{document}

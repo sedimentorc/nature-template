@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%% THE BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Detailed information on how to format a nature letter or article is given in their formatting guide \cite{gta}. If there is a discrepancy between this template and the formatting guide, you should follow the formatting guide. At the time of creation, this template followed the guide, but there are updates periodically. 
+
+The basic composition of a Nature Letter is outlined in \cite{nat_compo}. From the formatting guide\cite{gta}, ``Contributions should be double-spaced and written in English (spellings as in the Oxford English Dictionary). Sections can only be used in Articles. Contributions should be organized in the sequence: title, text, methods, references, Supplementary Information line (if any), acknowledgements, author contributions, author information (containing data deposition statement, competing interest declaration and corresponding author line), tables, figure legends." The file that controls the order of items is \verb!nature-template.tex!. This file is extremely short and it calls other files for content \verb!abstract.tex!, \verb!methods.tex!, \verb!body.tex!, \verb!suppmat.tex!. The purpose of this file structure is to allow facile and rapid transition to other journal templates without a lot of extra work. The overall strategy of this template file-structure is to work on the individual files, allowing different people to work on different files, having the ability to switch journals easily, and produce a single PDF file for the submission.
+
+Based on the composition order of sections, you would assume the figure legends and the figures have to go at the end of the submission. The nature submission guidelines are actually not very clear on this issue, but historically that is what people have done--move the figures to the end. The guidelines for scientific reports\cite{nsreps} and communications\cite{ncomms} do say expressly that ``the figures may be inserted within the text at the appropriate positions, or grouped at the end.''. This template defaults to putting the figures at the end of the text, by using the endfloat package, but you can modify this behavior by commenting out the endfloat package line in the file: \verb!preamble.tex!. In general, the properties of the document are specified in three documents: \verb!nature.cls!, \verb!preamble.tex!, and \verb!preamble_optional.tex!. The file \verb!nature.cls! provides the maketitle command, and new environments for affiliations, abstract, methods, and addendum. The heading for References and Supplementary Information are handled in-text within the template. The file \verb!preamble.tex! handles spacing, packages, figure placement, caption formatting, bibliography formatting, and the file \verb!preamble_optional.tex! includes extra packages: todonotes, ulem, rotating, soul, color, and special custom commands for working on the document with multiple people: \verb!\NEW!, \verb!\NOTE!, \verb!\NOTEC!, \verb!\NOTEM!. It also provides two special symbols: \verb!\Conv!, \verb!\xoverline!. 
+
+The NOTE commands allow you to type comments that are color coded on the side of the text. For example, \verb!\NOTEC{A comment by Carlos}!\NOTEC{A comment by Carlos}, or\verb!\NOTEM{A comment by Morgane}!\NOTEM{A comment by Morgane}. These comments show up on the side margin, in different colors. If you have a favorite color, feel free to make yourself a NOTE command with a different color in the preamble, or just use \verb!\NOTE{A generic comment}!\NOTE{A generic comment}, which will give you orange. The idea is to ask everyone to flag to-do notes with these instead of leaving them in the middle of the text, where they require reading to find them. You don't want to forget one and submit an XXX error, right?
+
+The figure label at the beginning of figure captions that has been turned off using the caption package in the preamble, which means that you have to create the figure label yourself and bodyfigure has been provided as a convinience function.  Inside the caption environment, you have to use \verb!\bodyfigurelabel{fig:whateverlabel}!, where the argument is the same as what you normally put into a label command. Do not call a normal label comment. The placement of this function at the beginning of the caption is important, too, since its output is the header text for the caption. This command works using a custom figure counter, which interacts with the reference command as you would expect---for example, you still can refer to Fig.~\ref{fig:Figure1} using the standard ref commands. The purpose of this feature is to enable you to have control over whether a figure is labelled part of the main text or of the Extended Data. A separate command \verb!\edfigurelabel{fig:anotherlabel}! is provided for use with Extended Data. The figure counter is reset prior to calling the file \verb!suppmat.tex!, so that you can continue to use ref/label commands to refer to Extended Data Figures. Check out the dummy Extended Data for this feature at work.
+
+
+\begin{figure}
+%\centerline{\includegraphics[width=183mm]{./Figure1.pdf}}
+\centerline{\dummydoublecolfig{Figure1}}
+\caption{\bodyfigurelabel{fig:Figure1} Dummy Two-Column Figure and Legend (caption). Each figure legend should begin with a brief title for the whole figure and continue with a short description of each panel and the symbols used. For contributions with methods sections, legends should not contain any details of methods, or exceed 100 words (fewer than 500 words in total for the whole paper). In contributions without methods sections, legends should be fewer than 300 words (800 words or fewer in total for the whole paper)\cite{gta}.}
+\end{figure}
+
+% \begin{figure}
+% \caption{}
+% \end{figure}
+
+%%Figures
+% See the guidelines here: 
+% 
+
+% " All text should be in a sans-serif typeface, preferably Helvetica or Arial"
+% " Do not rasterize line art or text in submitted figures"
+% "Wherever possible please supply editable, un attenned vector artwork"
+% " All photographic images must be supplied at a minimum of 300 dpi
+%  at the maximum size they can be used"
+% " Do not rasterize or outline these lines if possible"
+
+
+%Also, see here: http://www.nature.com/authors/policies/image.html
+
+You should be prepared to provide high-resolution versions of images: ``all digitized images submitted with the final revision of the manuscript must be of high quality and have resolutions of at least 300 d.p.i. for colour, 600 d.p.i. for greyscale and 1,200 d.p.i. for line art"\cite{nimgpol}. Basic guidelines to keep in mind are: all text should be in a sans-serif typeface, preferably Helvetica or Arial. Do not rasterize line art or text in submitted figure---this means that you have to use vector graphics for all numbers, lines, and axes for your figures. Most figures of the variety of scatter plots of X vs Y plots should be tiny files under 1 MB of fully vector graphics content. Images, such as raw data from microscopy, or raw satellite data, have to prescribe to the dpi quality limits. 3D renderings are tricky because many could be done in vector graphics. If the 3D rendering is rasterized, then it has to match the resolution requirements. See the final artwork policy\cite{nfinalimg} for more details.  Minimum text size is 5pt. Lines must be between 0.25pt and 1pt. Single column figures must be 89mm in width, double column figures must be 183mm in width. See Fig.~\ref{fig:Figure1} for a two-column dummy figure and Fig.~\ref{fig:Figure2} for a single-column dummy figure. To have uniform text and fonts for all your figures, you have to create your figures to match theses size rather than resizing the figures to fit the column size. Typically, you want to have three or four figures for a Letter.
+
+
+	
+\begin{figure}
+%\centerline{\includegraphics[width=89mm]{./Figure2.pdf}}
+\centerline{\dummysinglecolfig{Figure2}}
+\caption{\bodyfigurelabel{fig:Figure2} Dummy Single-Column Figure and Legend (caption). Each figure legend should begin with a brief title for the whole figure and continue with a short description of each panel and the symbols used. For contributions with methods sections, legends should not contain any details of methods, or exceed 100 words (fewer than 500 words in total for the whole paper). In contributions without methods sections, legends should be fewer than 300 words (800 words or fewer in total for the whole paper)\cite{gta}.}
+\end{figure}
+
