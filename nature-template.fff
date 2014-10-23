@@ -1,0 +1,28 @@
+\begin{figure}
+%\centerline{\includegraphics[width=183mm]{./Figure1.pdf}}
+\centerline{\dummydoublecolfig{Figure1}}
+\caption{\bodyfigurelabel{fig:Figure1} Dummy Two-Column Figure and Legend (caption). Each figure legend should begin with a brief title for the whole figure and continue with a short description of each panel and the symbols used. For contributions with methods sections, legends should not contain any details of methods, or exceed 100 words (fewer than 500 words in total for the whole paper). In contributions without methods sections, legends should be fewer than 300 words (800 words or fewer in total for the whole paper)\cite{gta}.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+%\centerline{\includegraphics[width=89mm]{./Figure2.pdf}}
+\centerline{\dummysinglecolfig{Figure2}}
+\caption{\bodyfigurelabel{fig:Figure2} Dummy Single-Column Figure and Legend (caption). Each figure legend should begin with a brief title for the whole figure and continue with a short description of each panel and the symbols used. For contributions with methods sections, legends should not contain any details of methods, or exceed 100 words (fewer than 500 words in total for the whole paper). In contributions without methods sections, legends should be fewer than 300 words (800 words or fewer in total for the whole paper)\cite{gta}.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+%\centerline{\includegraphics[width= 17cm]{./ExtendedData_1.pdf}}
+\centerline{\dummydoublecolfig{ExtendedData1}}
+\caption{\edfigurelabel{fig:figureSM1} Dummy caption. Note, Extended Data Figures are all two-column.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+%\centerline{\includegraphics[height={\textheight-140 pt}]{./ExtendedData_2.pdf}}
+\centerline{\dummydoublecolfig{ExtendedData2}}
+\caption{\edfigurelabel{fig:figureSM2} Dummy Caption. Note, Extended Data Figures are all two-column.}
+\end{figure}
+\efloatseparator
+ 

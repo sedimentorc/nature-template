@@ -1,0 +1,57 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{nat_boldpar}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Annotated bold paragraph} (\bibinfo{year}{2014}).
+\newblock
+  \urlprefix\url{http://www.nature.com/nature/authors/gta/2c_Summary_para.pdf}.
+
+\bibitem{gta}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Manuscript formatting guide} (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://www.nature.com/nature/authors/gta/}.
+
+\bibitem{nat_compo}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Composition of a letter} (\bibinfo{year}{2014}).
+\newblock
+  \urlprefix\url{http://www.nature.com/nature/authors/gta/3g_Paper_composition.pdf}.
+
+\bibitem{nsreps}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Nature scientific reports guidelines}
+  (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://www.nature.com/srep/authors/submit.html}.
+
+\bibitem{ncomms}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Nature communications guidelines}
+  (\bibinfo{year}{2014}).
+\newblock
+  \urlprefix\url{http://www.nature.com/ncomms/authors/submit.html#Figure-legends}.
+
+\bibitem{nimgpol}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Nature image policies} (\bibinfo{year}{2014}).
+\newblock \urlprefix\url{http://www.nature.com/authors/policies/image.html}.
+
+\bibitem{nfinalimg}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Nature final artwork policies}
+  (\bibinfo{year}{2014}).
+\newblock
+  \urlprefix\url{http://www.nature.com/nature/authors/gta/3c_Final_artwork.pdf}.
+
+\bibitem{nsuppmat}
+\bibinfo{author}{Nature}.
+\newblock \bibinfo{title}{Nature supplementary info guidelines}
+  (\bibinfo{year}{2014}).
+\newblock
+  \urlprefix\url{http://www.nature.com/nature/authors/submissions/final/suppinfo.html}.
+
+\end{thebibliography}

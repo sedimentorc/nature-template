@@ -1,0 +1,24 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: nature-template.aux
+The style file: naturemag.bst
+Database file #1: mybib.bib
+Warning--entry type for "gta" isn't style-file defined
+--line 1 of file mybib.bib
+Warning--entry type for "nat_boldpar" isn't style-file defined
+--line 10 of file mybib.bib
+Warning--entry type for "nat_compo" isn't style-file defined
+--line 18 of file mybib.bib
+Warning--entry type for "ncomms" isn't style-file defined
+--line 26 of file mybib.bib
+Warning--entry type for "nsreps" isn't style-file defined
+--line 35 of file mybib.bib
+Warning--entry type for "nimgpol" isn't style-file defined
+--line 43 of file mybib.bib
+Warning--entry type for "nfinalimg" isn't style-file defined
+--line 52 of file mybib.bib
+Repeated entry---line 61 of file mybib.bib
+ : @online{nfinalimg
+ :                  ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "nsuppmat" isn't style-file defined
+--line 69 of file mybib.bib
+(There was 1 error message)
