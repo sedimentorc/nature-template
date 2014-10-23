@@ -11,10 +11,15 @@ This template is valid as of 10/23/2014.
 
 Features:
 
-> Figures go at the end of the document
-> Line numbers
-> Bold paragraph
-> Sections in separate files
-> Commenting commands to annotate todo items for work with others
-> Custom figure labels for main body and extended data
+- Figures go at the end of the document
+- Line numbers
+- Bold paragraph
+- Sections in separate files
+- Commenting commands to annotate todo items for work with others
+- Custom figure labels for main body and extended data
 
+The main file is nature-template.tex. Start by reading the sample output file: nature-template.pdf.
+
+Good luck,
+
+Carlos
